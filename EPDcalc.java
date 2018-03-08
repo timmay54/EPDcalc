@@ -67,6 +67,17 @@ public class EPDcalc{
       
       if (selection == 1){
          // code for calculating 205 day adjusted weight
+         System.out.println("what was the actual birth weight?");
+         double actBW = input.nextDouble();
+         System.out.println("Actual Weaning Weight?");
+         double actWW = input.nextDouble();
+         System.out.println("How many days until it was weaned?");
+         int weaningAge = input.nextInt();
+         System.out.println("Dam's age of adjustment");
+         int damADJ = input.nextInt();
+         double outcome = (actWW - actBW)/weaningAge;
+         outcome = (outcome*205) + (actBW + damADJ);
+         System.out.println(outcome);
       }
       else if (selection == 2){
          // code for 365 day calculation
