@@ -17,10 +17,14 @@ public class EPDcalc{
          try{
             System.out.println("What would you like to do?: ");
             System.out.println("1. Calculate Genetic Predictions");
-            System.out.println("2. Calculate blah blah");
+            System.out.println("2. Calculate Adjusted Weaning Weight");
             selection = scan.nextInt();
             if ( selection==1 ){
-               calculateGeneticPredictions();
+               geneticPredictions();
+            }
+            else if ( selection == 2){
+               adjustedWeaning();
+            
             }
          }
          catch(Exception e){//error of not being a number inside menu)
@@ -33,7 +37,7 @@ public class EPDcalc{
    *  needs more info
    *
    */
-   public static void calculateGeneticPredictions(){
+   public static void geneticPredictions(){
       System.out.println("Number of records?");
       Scanner input = new Scanner(System.in);
       int n = input.nextInt();
@@ -48,5 +52,24 @@ public class EPDcalc{
       double endAnswer = fraction * weight;
       System.out.println("the end result is: " + endAnswer + "\n" + "\n"); // Need more descriptions
       
+   }
+   
+   /**
+   *Takes a weaning weight of a calf and adjusts it
+   *to "205 day" or "365 day" esitmates
+   *
+   *Selection will be made to choose between the two
+   */
+   public static void adjustedWeaning(){
+      System.out.println("(1). 205 day or (2). 365 day?");
+      Scanner input = new Scanner(System.in);
+      int selection = input.nextInt();
+      
+      if (selection == 1){
+         // code for calculating 205 day adjusted weight
+      }
+      else if (selection == 2){
+         // code for 365 day calculation
+      }
    }
 }
