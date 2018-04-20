@@ -24,11 +24,14 @@ public class EPDcalc{
             }
             else if ( selection == 2){
                adjustedWeaning();
+            }
             
+            if (selection != 1 || selection!=2){
+               throw new Exception();
             }
          }
          catch(Exception e){//error of not being a number inside menu)
-            
+            System.out.println("That was not an option, please enter an integer.\n");
          }
       }
    }
@@ -61,7 +64,7 @@ public class EPDcalc{
    *Selection will be made to choose between the two
    */
    public static void adjustedWeaning(){
-      System.out.println("(1). 205 day or (2). 365 day?");
+      System.out.println("(1) 205 day   or   (2) 365 day?");
       Scanner input = new Scanner(System.in);
       int selection = input.nextInt();
       
