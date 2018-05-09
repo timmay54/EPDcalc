@@ -30,8 +30,8 @@ public class EPDcalc{
       int weaningWeightDEV   = 50;    //pounds
       double weaningWeightHeritability = 0.3; //percentage
 
-      float feedConversion = 7.00;  //pounds (feed per gain)
-      float feedConversionDEV= 0.5;  //pounds (feed per gain)
+      double feedConversion = 7.00;  //pounds (feed per gain)
+      double feedConversionDEV= 0.5;  //pounds (feed per gain)
       double feedConversionHeritability = 0.4; //percentage
 
       double backFat       = 0.4;    //inches
@@ -45,10 +45,10 @@ public class EPDcalc{
             System.out.println("What would you like to do?: ");
             System.out.println("1. Calculate Genetic Predictions");
             System.out.println("2. Calculate Adjusted Weaning Weight");
-            System.out.println("");
-            System.out.println("");
-            System.out.println("");
-            System.out.println("");
+            System.out.println("3.");
+            System.out.println("4.");
+            System.out.println("5.");
+            System.out.println("6.");
 
 
 
@@ -79,7 +79,7 @@ public class EPDcalc{
    */
    public static void geneticPredictions(){
       //Reapeatability Constants
-      //Probably could print a table of these values
+      
       double calvingDateR = 0.35;
       double birthWeightR = 0.2;
       double weaningWeightR = 0.4;
@@ -91,6 +91,8 @@ public class EPDcalc{
       System.out.println("Number of records?");
       Scanner input = new Scanner(System.in);
       int n = input.nextInt();
+      System.out.println("Constants of repeatability for specefic traits:");
+      System.out.println("Calving Date: " + calvingDateR +"\nBirth Weight: " + birthWeightR + "\nWeaning Weight: " + weaningWeightR + "\nBody Measurements: " + bodyMeasurements);
       System.out.println("Constant of repeatability?");
       double r = input.nextDouble();
       System.out.println("Number to multiply by?");
@@ -123,7 +125,15 @@ public class EPDcalc{
          double actWW = input.nextDouble();
          System.out.println("How many days until it was weaned?");
          int weaningAge = input.nextInt();
-         System.out.println("Dam's age of adjustment");
+         System.out.println("Dam's age of adjustment table:");
+         System.out.format("%15s%10s%12s", "Age of Dam:", "Males:", "Females:\n");
+         System.out.format("%15s%10s%12s", "2", "60", "54\n" );
+         System.out.format("%15s%10s%12s", "3", "40", "36\n" );     //Online says to use %n in s.o.format
+         System.out.format("%15s%10s%12s", "4", "20", "18\n" );     //to get a new line to start more easily
+         System.out.format("%15s%10s%12s", "5 to 10", "0", "0\n" );
+         System.out.format("%15s%10s%12s", "11+", "20", "18\n" );
+         
+         System.out.println("What is the dam's age adjustment?")
          int damADJ = input.nextInt();
          double outcome = (actWW - actBW)/weaningAge; //pg 183
          outcome = (outcome*205) + (actBW + damADJ);
